@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Italiana&display=swap");
+
+#root {
+  margin: 0;
+  text-align: center;
+  margin: 0;
+  width: -webkit-fill-available;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.img-navbar {
+  width: 1.3em;
+  height: 1.3em;
+  margin-right: 0.4em;
+}
+
+.header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(/src/assets/imgs/Header.jpg);
+  background-size: cover;
+  background-position: center;
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Italiana", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  color: white;
+}
+
+.header > h1 {
+  font-size: xx-large;
+}
+
+.italian-font {
+  font-family: "Italiana", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.div-cards {
+  display: flex;
+  justify-content: space-around;
+  gap: 4em;
+  border: 1px solid yellow;
+  margin: 1em;
+  padding: 1em;
+}
+
+/* .div-form {
+  border: 2px solid yellow;
+  padding: 2em;
+} */
+
+.error {
+  color: red;
+  text-align: center;
+  font-weight: bolder;
+  font-size: large;
+}
+
+.success {
+  color: green;
+  text-align: center;
+  font-weight: bolder;
+  font-size: large;
+}

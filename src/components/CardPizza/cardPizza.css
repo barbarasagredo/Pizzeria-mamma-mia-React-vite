@@ -1,0 +1,46 @@
+.card-pizza {
+  border-radius: 0.6em;
+  overflow: hidden;
+  max-width: 350px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.card-pizza:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: #f8f9fa;
+  transform: translateY(-2px);
+}
+
+.card-title {
+  padding: 1em;
+  border-bottom: 1px solid rgba(150, 154, 157, 0.363);
+  font-weight: bolder;
+}
+
+.card-ingredients {
+  padding: 1em;
+  border-bottom: 1px solid rgba(150, 154, 157, 0.363);
+}
+
+.card-ingredients > h6 {
+  color: gray;
+  font-weight: 400;
+}
+
+.ingredient-list {
+  color: rgb(77, 77, 77);
+  font-weight: 300;
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: space-around;
+}
