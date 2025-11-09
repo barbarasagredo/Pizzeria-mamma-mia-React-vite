@@ -62,3 +62,10 @@
   font-weight: bolder;
   font-size: large;
 }
+
+.cart-img {
+  width: auto;       
+  height: 3em;        
+  object-fit: cover;    
+  object-position: center; 
+}
