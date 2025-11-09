@@ -2,7 +2,7 @@
 
 Web del proyecto [🠮 aquí ](https://pizzeriamammamia-hito2.netlify.app/)!
 
-Proyecto desarrollado con **React** como parte del **Hito 2 del Proyecto** del módulo de React del Bootcamp de Fullstack de ADL.  
+Proyecto desarrollado con **React** como parte del **Hito 3 del Proyecto** del módulo de React del Bootcamp de Fullstack de ADL.  
 La aplicación representa la página web de la pizzería **Mamma Mia**, ofreciendo una interfaz moderna e interactiva donde los usuarios podrán explorar el menú, personalizar pedidos y hacer el registro y login como usuarios.
 
 ---

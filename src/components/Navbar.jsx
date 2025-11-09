@@ -5,17 +5,14 @@ const Navbar = () => {
   // const token = false;
   const [token, setToken] = useState(false);
 
-  // Función para manejar el login
   const handleLogin = () => {
     setToken(true);
   };
 
-  // Función para manejar el logout
   const handleLogout = () => {
     setToken(false);
   };
 
-  // Función para manejar el registro
   const handleRegister = () => {
     console.log("Redirigiendo a registro...");
   };
