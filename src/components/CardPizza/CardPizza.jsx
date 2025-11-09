@@ -1,6 +1,6 @@
 import "./cardPizza.css";
 
-const CardPizza = ({ name, price, ingredients, img }) => {
+const CardPizza = ({ name, description, price, ingredients, img }) => {
   return (
     <>
       <div className="col-12 col-sm-6 col-lg-3 col-xl-3 mb-4">
@@ -14,14 +14,23 @@ const CardPizza = ({ name, price, ingredients, img }) => {
               height="40%"
             />
           </div>
-          <div className="card-title italian-font">
-            <h3>Pizza {name}</h3>
+          <div className="card-title">
+            <h3 className=" italian-font">Pizza {name}</h3>
+            <p className="description text-body">{description}</p>
           </div>
           <div className="card-ingredients">
-            <h6>Ingredientes:</h6>
+            <div className="mb-3 text-body">
+              <h6>
+                {" "}
+                <i className="fas fa-pizza-slice me-1"></i>Ingredientes:
+              </h6>
+            </div>
             <div className="ingredient-list">
-              <i className="fas fa-pizza-slice me-1"></i>
-              <span>{ingredients.join(", ")}</span>
+              {ingredients.map((ingredient, index) => (
+                <div key={index} className="ingredient-item">
+                  <span>{ingredient}</span>
+                </div>
+              ))}
             </div>
           </div>
           <div className="card-footer">

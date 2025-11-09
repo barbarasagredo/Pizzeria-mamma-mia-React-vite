@@ -1,7 +1,7 @@
 .card-pizza {
   border-radius: 0.6em;
   overflow: hidden;
-  max-width: 350px;
+  max-width: 26em;
   margin: 0 auto;
   transition: all 0.3s ease;
 }
@@ -29,8 +29,21 @@
 }
 
 .ingredient-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
   color: rgb(77, 77, 77);
   font-weight: 300;
+  margin-top: 4px;
+}
+
+.ingredient-item {
+  background: #f7f7f7;
+  padding: 4px 8px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .card-footer {
@@ -43,4 +56,11 @@
 .card-buttons {
   display: flex;
   justify-content: space-around;
+}
+
+.description {
+  color: rgb(78, 78, 78);
+  font-size: medium;
+  font-weight: 400;
+  margin-top: 1em;
 }
