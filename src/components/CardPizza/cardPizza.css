@@ -46,6 +46,10 @@
   align-items: center;
 }
 
+.ingredient-item > li {
+  list-style-type: none;
+}
+
 .card-footer {
   display: flex;
   flex-direction: column;
