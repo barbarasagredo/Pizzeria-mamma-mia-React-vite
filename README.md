@@ -1,7 +1,5 @@
 # 🍕 Pizzería Mamma Mia
 
-Web del proyecto [🠮 aquí ](https://pizzeriamammamia-hito2.netlify.app/)!
-
 Proyecto desarrollado con **React** como parte del **Hito 3 del Proyecto** del módulo de React del Bootcamp de Fullstack de ADL.  
 La aplicación representa la página web de la pizzería **Mamma Mia**, ofreciendo una interfaz moderna e interactiva donde los usuarios podrán explorar el menú, personalizar pedidos y hacer el registro y login como usuarios.
 
@@ -36,7 +34,7 @@ Pizzeria-mamma-mia-hito1/
 
 1. Clona el repositorio:
    ```
-   git clone https://github.com/barbarasagredo/Pizzeria-mamma-mia-hito2 ```
+   git clone https://github.com/barbarasagredo/Pizzeria-mamma-mia-React-vite.git ```
 
 2. Entra en el directorio del proyecto:
 
@@ -55,7 +53,9 @@ npm instal
 ```
 npm run dev
 ```
-5. Abre tu navegador en el puerto que indica. Verás la página de Login, para poder controlar las vistas puedes ir al componente App.jsx y descomentar Home o Register. 
+5. Abre tu navegador en el puerto que indica. 
+
+6. Verás la página de Cart, para poder controlar las vistas puedes ir al componente App.jsx y descomentar Home, Login o Register. 
 
 
 ## ✨ Autor
