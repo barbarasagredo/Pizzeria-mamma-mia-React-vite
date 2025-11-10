@@ -36,75 +36,73 @@ export const Cart = () => {
 
   return (
     <>
-      <div className="d-flex flex-column align-items-start mx-4">
-        <h5 className="ps-4">Detalles del pedido:</h5>
-        <div className="col-md-8 col-12 mx-auto">
-          <div className="d-flex flex-column">
-            {cartItems.map((pizza) => (
-              <div className="d-flex py-2 flex-column" key={pizza.id}>
-                <div className="row align-items-center justify-content-between">
-                  <div className="col-auto">
-                    <img
-                      src={pizza.img}
-                      className="img-fluid rounded-start cart-img"
-                      alt={pizza.name}
-                    />
-                  </div>
-                  <div className="col-auto ">
-                    <h5 className="mb-0 fw-semibold">Pizza {pizza.name}</h5>
-                    <small className="text-body fw-semibold">
-                      ${pizza.price.toLocaleString()}
-                    </small>
-                    <div className="mt-1">
-                      <small className="text-muted">
-                        Subtotal: $
-                        {(pizza.price * pizza.count).toLocaleString()}
-                      </small>
-                    </div>
-                  </div>
-                  <div className="col-auto mt-2">
-                    <div className="d-flex align-items-center">
-                      <button
-                        className="btn btn-outline-danger btn-sm px-2"
-                        onClick={() => restarPizza(pizza.id)}
-                      >
-                        −
-                      </button>
-                      <span className="mx-2">{pizza.count}</span>
-                      <button
-                        className="btn btn-outline-primary btn-sm px-2"
-                        onClick={() => sumarPizza(pizza.id)}
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
+      <div className="border border-light-subtle shadow-sm rounded p-2 m-4">
+        <h5 className="d-flex flex-column align-items-start mb-0 p-2">
+          Detalles del pedido:
+        </h5>
+        <div className="d-flex flex-column px-1 py-3 gap-3">
+          {cartItems.map((pizza) => (
+            <div
+              className="row g-0 align-items-center justify-content-between"
+              key={pizza.id}
+            >
+              <div className="col col-auto me-2">
+                <img
+                  src={pizza.img}
+                  className="img-fluid rounded-start cart-img d-flex justify-content-start"
+                  alt={pizza.name}
+                />
+              </div>
+              <div className="col col-md-2">
+                <h5 className="mb-0 fs-6 fw-semibold d-flex justify-content-start">
+                  Pizza {pizza.name}
+                </h5>
+                <small className="text-muted">
+                  Subtotal: ${(pizza.price * pizza.count).toLocaleString()}
+                </small>
+              </div>
+              <div className=" col col-md-2">
+                <div className="d-flex align-items-center justify-content-end">
+                  <button
+                    className="btn btn-outline-danger btn-sm"
+                    onClick={() => restarPizza(pizza.id)}
+                  >
+                    −
+                  </button>
+                  <span className="px-2">{pizza.count}</span>
+                  <button
+                    className="btn btn-outline-primary btn-sm"
+                    onClick={() => sumarPizza(pizza.id)}
+                  >
+                    +
+                  </button>
                 </div>
               </div>
-              // <CartCard
-              //   img={pizza.img}
-              //   name={pizza.name}
-              //   price={pizza.price}
-              //   key={pizza.id}
-              //   count={pizza.count}
-              // />
-            ))}
-
-            {cartItems.length === 0 && (
-              <div className="text-center py-4">
-                <p className="text-muted">El carrito está vacío</p>
-              </div>
-            )}
-
-            <div className="d-flex flex-column align-items-start py-4">
-              <h4 className="mt-2">Total: ${total.toLocaleString()}</h4>
-              <button
-                className="btn btn-dark"
-                disabled={cartItems.length === 0}
-              >
-                Pagar
-              </button>
+              {/* </div> */}
             </div>
+            // <CartCard
+            //   img={pizza.img}
+            //   name={pizza.name}
+            //   price={pizza.price}
+            //   key={pizza.id}
+            //   count={pizza.count}
+            // />
+          ))}
+
+          {cartItems.length === 0 && (
+            <div className="text-center py-4">
+              <p className="text-muted">El carrito está vacío</p>
+            </div>
+          )}
+
+          <div className="d-flex flex-column align-items-start">
+            <h4 className="my-2 mb-0">Total: ${total.toLocaleString()}</h4>
+            <button
+              className="btn btn-dark my-2"
+              disabled={cartItems.length === 0}
+            >
+              Pagar
+            </button>
           </div>
         </div>
       </div>
