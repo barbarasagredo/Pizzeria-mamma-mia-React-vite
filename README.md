@@ -39,7 +39,7 @@ Pizzeria-mamma-mia-hito1/
 2. Entra en el directorio del proyecto:
 
 ```
-cd Pizzeria-mamma-mia-hito2
+cd Pizzeria-mamma-React-vite
 ```
 
 3. Instala las dependencias:
