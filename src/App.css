@@ -69,3 +69,10 @@
   object-fit: cover;    
   object-position: center; 
 }
+
+.card-pizza {
+  width: 12em;       
+  height: auto;        
+  object-fit: cover;    
+  object-position: center; 
+}
