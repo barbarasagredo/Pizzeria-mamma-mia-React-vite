@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import Register from "./components/Register";
 import { Cart } from "./components/Cart";
+import { Pizza } from "./components/Pizza";
 
 const App = () => {
   // const pizzaList = pizzas;
@@ -15,8 +16,9 @@ const App = () => {
       {/* <Login /> */}
       {/* <Register /> */}
       {/* <Home pizzaList={pizzaList} /> */}
-      <Home />
+      {/* <Home /> */}
       {/* <Cart /> */}
+      <Pizza />
       <Footer />
     </>
   );
