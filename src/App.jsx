@@ -15,7 +15,8 @@ const App = () => {
       {/* <Login /> */}
       {/* <Register /> */}
       {/* <Home pizzaList={pizzaList} /> */}
-      <Cart />
+      <Home />
+      {/* <Cart /> */}
       <Footer />
     </>
   );

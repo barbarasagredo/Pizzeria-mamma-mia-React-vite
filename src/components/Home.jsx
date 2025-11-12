@@ -1,19 +1,32 @@
+import { useEffect, useState } from "react";
 import CardPizza from "./cardPizza/CardPizza";
 import Header from "./Header";
 
-const Home = ({ pizzaList }) => {
+const Home = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    getDataPizzas();
+  }, []);
+
+  const getDataPizzas = async () => {
+    const url = "http://localhost:5000/api/pizzas";
+    const res = await fetch(url);
+    const data = await res.json();
+    setData(data);
+  };
+
   return (
     <>
       <Header />
       <div className="div-cards row border border-light-subtle shadow-sm">
-        {pizzaList.map((pizza) => (
+        {data.map((pizza) => (
           <CardPizza
             name={pizza.name}
-            key={pizza.id}
+            img={pizza.img}
+            ingredients={pizza.ingredients}
             description={pizza.desc}
             price={pizza.price}
-            ingredients={pizza.ingredients}
-            img={pizza.img}
           />
         ))}
       </div>
