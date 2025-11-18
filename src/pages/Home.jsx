@@ -27,6 +27,7 @@ const Home = () => {
             ingredients={pizza.ingredients}
             description={pizza.desc}
             price={pizza.price}
+            key={pizza.id}
           />
         ))}
       </div>
