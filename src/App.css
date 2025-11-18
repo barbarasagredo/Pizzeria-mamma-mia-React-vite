@@ -18,7 +18,7 @@
 }
 
 .header {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url(/src/assets/imgs/Header.jpg);
   background-size: cover;
   background-position: center;
@@ -64,15 +64,27 @@
 }
 
 .cart-img {
-  width: auto;       
-  height: 3em;        
-  object-fit: cover;    
-  object-position: center; 
+  width: auto;
+  height: 3em;
+  object-fit: cover;
+  object-position: center;
 }
 
 .card-pizza {
-  width: 12em;       
-  height: auto;        
-  object-fit: cover;    
-  object-position: center; 
+  /* width: 12em; */
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+.not-found {
+  padding: 3em 0;
+}
+
+.not-found > h3 {
+  font-size: clamp(2em, 6vw, 6em);
+}
+
+.not-found > i {
+  font-size: 2em;
 }

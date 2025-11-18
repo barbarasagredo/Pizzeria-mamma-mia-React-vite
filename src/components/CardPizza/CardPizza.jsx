@@ -4,7 +4,7 @@ const CardPizza = ({ name, description, price, ingredients, img }) => {
   return (
     <>
       <div className="col-12 col-sm-6 col-lg-3 col-xl-3 mb-4">
-        <div className="card-pizza border border-light-subtle shadow-sm">
+        <div className="card-pizza border border-light-subtle shadow-sm rounded">
           <div>
             <img
               className="avatar"
