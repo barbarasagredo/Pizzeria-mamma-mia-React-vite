@@ -1,4 +1,4 @@
-import "./CardPizza/CardPizza.css";
+import "../components/CardPizza/cardPizza.css";
 import { useEffect, useState } from "react";
 
 export const Pizza = () => {

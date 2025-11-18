@@ -1,10 +1,11 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 // import { pizzas } from "../src/assets/js/pizzas";
 import Footer from "./components/Footer";
 // import Home from "./pages/Home";
 // import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
-import { Cart } from "./pages/Cart";
+import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 // import Register from "./pages/Register";
@@ -17,12 +18,21 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <Login />
-      <Register />
       {/* <Home pizzaList={pizzaList} /> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="//login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/pizza/p001" element={<Pizza />} />
+        <Route path="/profile" element={<Profile />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
+      </Routes>
+      {/* <Login />
+      <Register />
       <Home />
       <Cart />
-      <Pizza />
+      <Pizza /> */}
       <Footer />
     </>
   );

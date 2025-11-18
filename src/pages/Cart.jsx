@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { pizzaCart } from "../assets/js/pizzas";
 
-export const Cart = () => {
+const Cart = () => {
   const [cartItems, setCartItems] = useState(pizzaCart);
 
   const sumarPizza = (pizzaId) => {
@@ -109,3 +109,4 @@ export const Cart = () => {
     </>
   );
 };
+export default Cart;
