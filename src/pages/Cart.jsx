@@ -78,15 +78,7 @@ const Cart = () => {
                   </button>
                 </div>
               </div>
-              {/* </div> */}
             </div>
-            // <CartCard
-            //   img={pizza.img}
-            //   name={pizza.name}
-            //   price={pizza.price}
-            //   key={pizza.id}
-            //   count={pizza.count}
-            // />
           ))}
 
           {cartItems.length === 0 && (

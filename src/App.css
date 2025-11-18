@@ -71,7 +71,6 @@
 }
 
 .card-pizza {
-  /* width: 12em; */
   height: auto;
   object-fit: cover;
   object-position: center;
@@ -93,10 +92,4 @@
   width: 4rem;
   height: 4rem;
   align-content: center;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
 }
-
-/* .profile-img-container > i {
-} */

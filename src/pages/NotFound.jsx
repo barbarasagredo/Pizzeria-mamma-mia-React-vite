@@ -10,7 +10,6 @@ const NotFound = () => {
         <h3 className="fw-bolder italian-font">404</h3>
         <div className="d-flex flex-column ">
           <p className="m-0">La página que buscas no existe.</p>
-          {/* <br /> */}
           <Link className="text-decoration-none text-secondary" to="/">
            Volver al inicio.
           </Link>
