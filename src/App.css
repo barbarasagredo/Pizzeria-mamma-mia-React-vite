@@ -88,3 +88,15 @@
 .not-found > i {
   font-size: 2em;
 }
+
+.profile-img-container {
+  width: 4rem;
+  height: 4rem;
+  align-content: center;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+
+/* .profile-img-container > i {
+} */
