@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { pizzaCart } from "../assets/js/pizzas";
+import { pizzaCart } from "../assets/js/pizzas.js";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState(pizzaCart);
@@ -101,4 +101,5 @@ const Cart = () => {
     </>
   );
 };
+
 export default Cart;
