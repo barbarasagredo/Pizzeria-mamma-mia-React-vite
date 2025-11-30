@@ -55,7 +55,9 @@ const Cart = () => {
               </div>
               <div className="col col-md-2">
                 <h5 className="mb-0 fs-6 fw-semibold d-flex justify-content-start">
-                  Pizza {pizza.name}
+                  {pizza.name
+                    ? pizza.name.charAt(0).toUpperCase() + pizza.name.slice(1)
+                    : ""}
                 </h5>
                 <small className="text-muted">
                   Subtotal: ${(pizza.price * pizza.count).toLocaleString()}

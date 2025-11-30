@@ -15,7 +15,9 @@ const CardPizza = ({ name, description, price, ingredients, img }) => {
             />
           </div>
           <div className="card-title">
-            <h3 className=" italian-font">Pizza {name}</h3>
+            <h3 className=" italian-font">
+              {name ? name.charAt(0).toUpperCase() + name.slice(1) : ""}
+            </h3>
             <p className="description text-body">{description}</p>
           </div>
           <div className="card-ingredients">

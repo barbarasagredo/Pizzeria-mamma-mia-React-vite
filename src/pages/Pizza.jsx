@@ -28,7 +28,9 @@ export const Pizza = () => {
           <div className="col-sm-8 p-4 pt-0">
             <div className="card-body">
               <h5 className="card-title">
-                Pizza {pizza.name}
+                {pizza.name
+                  ? pizza.name.charAt(0).toUpperCase() + pizza.name.slice(1)
+                  : ""}
                 <br />
                 <small className="text-muted fs-6 fw-normal">
                   ${pizza.price ? pizza.price.toLocaleString() : "0"}
