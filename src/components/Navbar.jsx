@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router";
+import { useCart } from "../contexts/CartContext";
 
 const Navbar = () => {
-  const total = 25000;
+  const { total } = useCart();
   const [token, setToken] = useState(true);
 
   const handleLogin = () => {

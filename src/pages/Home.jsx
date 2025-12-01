@@ -21,14 +21,7 @@ const Home = () => {
       <Header />
       <div className="div-cards row border border-light-subtle shadow-sm">
         {data.map((pizza) => (
-          <CardPizza
-            name={pizza.name}
-            img={pizza.img}
-            ingredients={pizza.ingredients}
-            description={pizza.desc}
-            price={pizza.price}
-            key={pizza.id}
-          />
+          <CardPizza key={pizza.id} pizza={pizza} />
         ))}
       </div>
     </>

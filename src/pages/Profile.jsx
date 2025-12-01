@@ -8,7 +8,7 @@ const Profile = () => {
             <i class="fa-solid fa-user text-secondary fs-2"></i>
           </div>
           <span className="text-secondary ">{email}</span>
-          <button type="button" class="btn btn-dark">
+          <button type="button" className="btn btn-dark">
             Cerrar sesión
           </button>
         </div>

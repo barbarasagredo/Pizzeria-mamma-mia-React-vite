@@ -1,6 +1,15 @@
+import { useCart } from "../../contexts/CartContext";
 import "./cardPizza.css";
 
-const CardPizza = ({ name, description, price, ingredients, img }) => {
+const CardPizza = (props) => {
+  const { agregarPizza } = useCart();
+
+  const { name, description, price, ingredients, img } = props.pizza;
+
+  const handleAgregar = () => {
+    agregarPizza(props.pizza);
+  };
+
   return (
     <>
       <div className="col-12 col-sm-6 col-lg-3 col-xl-3 mb-4">
@@ -41,7 +50,11 @@ const CardPizza = ({ name, description, price, ingredients, img }) => {
               <button type="button" className="btn btn-outline-secondary">
                 Ver más
               </button>
-              <button type="button" className="btn btn-dark">
+              <button
+                type="button"
+                className="btn btn-dark"
+                onClick={handleAgregar}
+              >
                 Añadir
                 <i className="fas fa-shopping-cart ms-2"></i>
               </button>
