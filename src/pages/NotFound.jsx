@@ -1,12 +1,11 @@
-import React from "react";
 import { Link } from "react-router";
 
 const NotFound = () => {
   return (
     <>
       <div className="container-fluid not-found">
-        <i class="fa-solid fa-pizza-slice"></i>
-        <i class="fa-solid fa-question ms-2"></i>
+        <i className="fa-solid fa-pizza-slice"></i>
+        <i className="fa-solid fa-question ms-2"></i>
         <h3 className="fw-bolder italian-font">404</h3>
         <div className="d-flex flex-column ">
           <p className="m-0">La página que buscas no existe.</p>

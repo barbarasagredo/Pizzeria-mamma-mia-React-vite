@@ -1,20 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import CardPizza from "../components/CardPizza/CardPizza";
 import Header from "../components/Header";
+import { useApiPizzas } from "../contexts/ApiPizzasContext";
 
 const Home = () => {
-  const [data, setData] = useState([]);
+  const { getDataPizzas, data } = useApiPizzas();
 
   useEffect(() => {
     getDataPizzas();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const getDataPizzas = async () => {
-    const url = "http://localhost:5000/api/pizzas";
-    const res = await fetch(url);
-    const data = await res.json();
-    setData(data);
-  };
 
   return (
     <>

@@ -67,4 +67,11 @@
   font-size: medium;
   font-weight: 400;
   margin-top: 1em;
+  max-height: 4.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }

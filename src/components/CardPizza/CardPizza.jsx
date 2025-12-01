@@ -1,10 +1,11 @@
+import { Link } from "react-router";
 import { useCart } from "../../contexts/CartContext";
 import "./cardPizza.css";
 
 const CardPizza = (props) => {
   const { agregarPizza } = useCart();
 
-  const { name, description, price, ingredients, img } = props.pizza;
+  const { name, desc, price, ingredients, img, id } = props.pizza;
 
   const handleAgregar = () => {
     agregarPizza(props.pizza);
@@ -27,7 +28,7 @@ const CardPizza = (props) => {
             <h3 className=" italian-font">
               {name ? name.charAt(0).toUpperCase() + name.slice(1) : ""}
             </h3>
-            <p className="description text-body">{description}</p>
+            <p className="description text-body">{desc}</p>
           </div>
           <div className="card-ingredients">
             <div className="mb-3 text-body">
@@ -47,9 +48,11 @@ const CardPizza = (props) => {
           <div className="card-footer">
             <h4>Precio: ${price.toLocaleString()}</h4>
             <div className="card-buttons">
-              <button type="button" className="btn btn-outline-secondary">
-                Ver más
-              </button>
+              <Link to={`/pizza/${id}`}>
+                <button type="button" className="btn btn-outline-secondary">
+                  Ver más
+                </button>
+              </Link>
               <button
                 type="button"
                 className="btn btn-dark"
