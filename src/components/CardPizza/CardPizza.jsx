@@ -1,9 +1,10 @@
-import { Link } from "react-router";
+import { useNavigate } from "react-router";
 import { useCart } from "../../contexts/CartContext";
 import "./cardPizza.css";
 
 const CardPizza = (props) => {
   const { agregarPizza } = useCart();
+  const navigate = useNavigate();
 
   const { name, desc, price, ingredients, img, id } = props.pizza;
 
@@ -13,7 +14,7 @@ const CardPizza = (props) => {
 
   return (
     <>
-      <div className="col-12 col-sm-6 col-lg-3 col-xl-3 mb-4">
+      <div className="col-12 col-md-5 col-lg-5 col-xl-3 mb-4">
         <div className="card-pizza border border-light-subtle shadow-sm rounded">
           <div>
             <img
@@ -48,11 +49,13 @@ const CardPizza = (props) => {
           <div className="card-footer">
             <h4>Precio: ${price.toLocaleString()}</h4>
             <div className="card-buttons">
-              <Link to={`/pizza/${id}`}>
-                <button type="button" className="btn btn-outline-secondary">
-                  Ver más
-                </button>
-              </Link>
+              <button
+                onClick={() => navigate(`/pizza/${id}`)}
+                type="button"
+                className="btn btn-outline-secondary"
+              >
+                Ver más
+              </button>
               <button
                 type="button"
                 className="btn btn-dark"

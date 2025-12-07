@@ -1,22 +1,14 @@
-import { useState } from "react";
-import { Link } from "react-router";
+// import { useState } from "react";
+import { Link, NavLink } from "react-router";
 import { useCart } from "../contexts/CartContext";
+import { useUser } from "../contexts/UserContext";
 
 const Navbar = () => {
   const { total } = useCart();
-  const [token, setToken] = useState(true);
+  const { token, login, logout, register } = useUser();
 
-  const handleLogin = () => {
-    setToken(true);
-  };
-
-  const handleLogout = () => {
-    setToken(false);
-  };
-
-  const handleRegister = () => {
-    console.log("Redirigiendo a registro...");
-  };
+  const setActiveClassa = ({ isActive }) =>
+    isActive ? "nav-link text-white fw-semibold" : "nav-link";
 
   return (
     <>
@@ -42,38 +34,46 @@ const Navbar = () => {
             id="navbarNavAltMarkup"
           >
             <div className="navbar-nav">
-              <Link className="nav-link active" aria-current="page" to="/">
+              <NavLink className={setActiveClassa} aria-current="page" to="/">
                 Home
-              </Link>
+              </NavLink>
               {token ? (
-                <Link className="nav-link" to="/profile">
+                <NavLink className={setActiveClassa} to="/profile">
                   Profile
-                </Link>
+                </NavLink>
               ) : (
-                <Link
-                  className="nav-link"
+                <NavLink
+                  className={setActiveClassa}
                   to="/register"
-                  onClick={handleRegister}
+                  onClick={register}
                 >
                   Registro
-                </Link>
+                </NavLink>
               )}
               {token ? (
-                <Link className="nav-link" to="/logout" onClick={handleLogout}>
+                <NavLink
+                  className={setActiveClassa}
+                  to="/logout"
+                  onClick={logout}
+                >
                   Logout
-                </Link>
+                </NavLink>
               ) : (
-                <Link className="nav-link" to="/login" onClick={handleLogin}>
+                <NavLink
+                  className={setActiveClassa}
+                  to="/login"
+                  onClick={login}
+                >
                   Login
-                </Link>
+                </NavLink>
               )}
             </div>
             <div className="navbar-nav">
-              <Link className="nav-link" to="/cart">
+              <NavLink className={setActiveClassa} to="/cart">
                 {" "}
                 <i className="fas fa-shopping-cart me-1"></i>Total: ${" "}
                 {total.toLocaleString()}
-              </Link>
+              </NavLink>
             </div>
           </div>
         </div>
