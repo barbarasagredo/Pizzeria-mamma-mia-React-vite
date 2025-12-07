@@ -42,8 +42,8 @@ const Register = () => {
       <div className="col-10 col-md-8 mx-auto border border-light-subtle shadow-sm rounded p-5">
         <h4>Registro</h4>
         <form onSubmit={validarDatos}>
-          <div className="form-group text-start p2">
-            <label className="mb-1">Email</label>
+          <div className="form-group text-start">
+            <label className="my-3">Email</label>
             <input
               className="form-control"
               type="text"
@@ -53,8 +53,8 @@ const Register = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div className="form-group text-start p2">
-            <label className="mb-1">Contraseña</label>
+          <div className="form-group text-start">
+            <label className="my-3">Contraseña</label>
             <input
               className="form-control"
               type="text"
@@ -64,8 +64,8 @@ const Register = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div className="form-group text-start p2">
-            <label className="mb-1">Confirmar contraseña</label>
+          <div className="form-group text-start">
+            <label className="my-3">Confirmar contraseña</label>
             <input
               className="form-control"
               type="text"
@@ -89,7 +89,7 @@ const Register = () => {
           {samePasswordError && (
             <p className="error">Las contraseñas ingresadas no coinciden</p>
           )}
-          <button className="btn btn-success mt-3" type="submit">
+          <button className="btn btn-success mt-4" type="submit">
             Registrarse
           </button>
         </form>

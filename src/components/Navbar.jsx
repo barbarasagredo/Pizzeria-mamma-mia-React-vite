@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-md navbar-dark bg-dark">
         <div className="container-fluid">
           <Link className="navbar-brand italian-font" to="/">
             <img src="../../pizza.png" alt="" className="img-navbar" />
@@ -53,7 +53,7 @@ const Navbar = () => {
               {token ? (
                 <NavLink
                   className={setActiveClassa}
-                  to="/logout"
+                  to="/login"
                   onClick={logout}
                 >
                   Logout

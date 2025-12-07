@@ -7,7 +7,7 @@ const UserProvider = ({ children }) => {
   const [token, setToken] = useState(true);
 
   const login = () => {
-    setToken(true);
+    console.log("Redirigiendo a login...");
   };
 
   const logout = () => {
