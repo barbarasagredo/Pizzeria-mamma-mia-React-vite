@@ -16,20 +16,6 @@ const Navbar = () => {
   const handlerLogout = (e) => {
     e.preventDefault();
     logout();
-
-    Swal.fire({
-      title: "¡Hasta la próxima!",
-      text: "Te esperamos, vuelve pronto.",
-      confirmButtonText: "Ciao!",
-      confirmButtonColor: "#212529",
-      background: "#ffffff",
-      customClass: {
-        confirmButton: "fw-semibold",
-        title: "italian-font",
-      },
-    }).then(() => {
-      navigate("/login");
-    });
   };
 
   return (

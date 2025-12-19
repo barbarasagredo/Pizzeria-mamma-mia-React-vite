@@ -1,5 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
+import Swal from "sweetalert2";
 import { createContext, useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 
 export const UserContext = createContext();
 
@@ -7,6 +9,7 @@ const UserProvider = ({ children }) => {
   const [token, setToken] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   const login = async (email, password) => {
     try {
@@ -79,8 +82,21 @@ const UserProvider = ({ children }) => {
     setUser(null);
     setToken(null);
     localStorage.clear();
-  };
 
+    Swal.fire({
+      title: "¡Hasta la próxima!",
+      text: "Te esperamos, vuelve pronto.",
+      confirmButtonText: "Ciao!",
+      confirmButtonColor: "#212529",
+      background: "#ffffff",
+      customClass: {
+        confirmButton: "fw-semibold",
+        title: "italian-font",
+      },
+    }).then(() => {
+      navigate("/login");
+    });
+  };
 
   useEffect(() => {
     const savedToken = localStorage.getItem("token");
