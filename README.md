@@ -1,6 +1,6 @@
 # 🍕 Pizzería Mamma Mia
 
-Proyecto desarrollado con **React** como parte del **Hito 7 del Proyecto** del módulo de React del Bootcamp de Fullstack de ADL.  
+Proyecto desarrollado con **React** como parte del módulo de React del Bootcamp de Fullstack de ADL.
 La aplicación representa la página web de la pizzería **Mamma Mia**, ofreciendo una interfaz moderna e interactiva donde los usuarios podrán explorar el menú, personalizar pedidos y hacer el registro y login como usuarios.
 
 ---
@@ -11,6 +11,7 @@ La aplicación representa la página web de la pizzería **Mamma Mia**, ofrecien
 - **HTML5** y **CSS3**
 - **JavaScript (ES6+)**
 - **ESLint** para control de calidad del código
+-**JSON WEB TOKEN**
 
 ---
 
@@ -30,7 +31,7 @@ La aplicación representa la página web de la pizzería **Mamma Mia**, ofrecien
 
 7. React Router II ✔
 
-8. JWT
+8. JWT ✔
 
 ---
 
