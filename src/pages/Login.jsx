@@ -40,7 +40,6 @@ const Login = () => {
         confirmButtonColor: "#212529",
       });
     }
-    // setSuccessMessage(true);
 
     setEmail("");
     setPassword("");

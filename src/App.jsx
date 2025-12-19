@@ -12,7 +12,6 @@ import Profile from "./pages/Profile";
 import { useUser } from "./contexts/UserContext";
 
 const App = () => {
-  // const { token } = useUser();
   const { isAuthenticated } = useUser();
 
   return (

@@ -1,13 +1,10 @@
-// import { useState } from "react";
-import Swal from "sweetalert2";
 import { Link, NavLink, useNavigate } from "react-router";
 import { useCart } from "../contexts/CartContext";
 import { useUser } from "../contexts/UserContext";
 
 const Navbar = () => {
   const { total } = useCart();
-  const { isAuthenticated, logout, register } = useUser();
-  // const { token } = useUser();
+  const { isAuthenticated, logout } = useUser();
   const navigate = useNavigate();
 
   const setActiveClass = ({ isActive }) =>
@@ -53,7 +50,7 @@ const Navbar = () => {
                 <NavLink
                   className={setActiveClass}
                   to="/register"
-                  onClick={register}
+                  onClick={() => navigate(isAuthenticated ? "/" : "register")}
                 >
                   Registro
                 </NavLink>

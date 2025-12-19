@@ -30,7 +30,6 @@ const UserProvider = ({ children }) => {
       if (data.token) {
         setIsAuthenticated(true);
         setUser(data.email);
-        // setPassword(data.password);
         setToken(data.token);
         localStorage.setItem("token", data.token);
         localStorage.setItem("userEmail", data.email);
@@ -63,7 +62,6 @@ const UserProvider = ({ children }) => {
       if (data.token) {
         setIsAuthenticated(true);
         setUser(data.email);
-        // setPassword(data.password);
         setToken(data.token);
         localStorage.setItem("token", data.token);
         localStorage.setItem("userEmail", data.email);

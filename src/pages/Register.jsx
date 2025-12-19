@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { useUser } from "../contexts/UserContext";
@@ -33,9 +35,18 @@ const Register = () => {
       setSamePasswordError(true);
       return;
     }
-    await register(email, password);
-    navigate("/");
-    // setSuccessMessage(true);
+    try {
+      await register(email, password);
+      navigate("/");
+    } catch (error) {
+      console.log("Error en el login:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Error en el ingreso",
+        text: "Inténtalo nuevamente",
+        confirmButtonColor: "#212529",
+      });
+    }
 
     setEmail("");
     setPassword("");

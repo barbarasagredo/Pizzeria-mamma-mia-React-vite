@@ -61,7 +61,6 @@ const CartProvider = ({ children }) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          // Authorization: `Bearer token_jwt`,
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({

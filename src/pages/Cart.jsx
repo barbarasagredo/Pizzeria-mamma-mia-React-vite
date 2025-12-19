@@ -4,7 +4,6 @@ import { useUser } from "../contexts/UserContext";
 const Cart = () => {
   const { cartItems, sumarPizza, restarPizza, total, checkoutCart } = useCart();
   const { token } = useUser();
-  // const { isAuthenticated } = useUser();
 
   return (
     <>

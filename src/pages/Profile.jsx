@@ -1,7 +1,6 @@
 import { useUser } from "../contexts/UserContext";
 
 const Profile = () => {
-  // const email = "usuario@profile.cl";
   const { logout, user, isAuthenticated } = useUser();
   return (
     <>
