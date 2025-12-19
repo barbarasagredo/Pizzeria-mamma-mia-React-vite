@@ -4,16 +4,17 @@ import { createContext, useContext, useState } from "react";
 export const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
-  const [token, setToken] = useState(false);
+  // const [token, setToken] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const login = () => {
-    setToken(true);
+    setIsAuthenticated(true);
   };
 
   const logout = () => {
-    setToken(false);
+    setIsAuthenticated(false);
   };
 
   const register = () => {
@@ -23,8 +24,8 @@ const UserProvider = ({ children }) => {
   return (
     <UserContext.Provider
       value={{
-        token,
-        setToken,
+        isAuthenticated,
+        // token,
         login,
         logout,
         register,

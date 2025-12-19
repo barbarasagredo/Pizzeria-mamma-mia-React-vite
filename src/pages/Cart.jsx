@@ -3,7 +3,8 @@ import { useUser } from "../contexts/UserContext";
 
 const Cart = () => {
   const { cartItems, sumarPizza, restarPizza, total } = useCart();
-  const { token } = useUser();
+  // const { token } = useUser();
+  const { isAuthenticated } = useUser();
 
   return (
     <>
@@ -77,7 +78,7 @@ const Cart = () => {
                 <h4 className="my-0 text-success">${total.toLocaleString()}</h4>
                 <button
                   className="btn btn-dark py-2 col-3"
-                  disabled={cartItems.length === 0 || token === false}
+                  disabled={cartItems.length === 0 || isAuthenticated === false}
                   onClick={() => alert("Próximamente disponible")}
                 >
                   Pagar

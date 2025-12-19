@@ -12,7 +12,8 @@ import Profile from "./pages/Profile";
 import { useUser } from "./contexts/UserContext";
 
 const App = () => {
-  const { token } = useUser();
+  // const { token } = useUser();
+  const { isAuthenticated } = useUser();
 
   return (
     <>
@@ -21,17 +22,17 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route
           path="/login"
-          element={!token ? <Login /> : <Navigate to="/" />}
+          element={isAuthenticated ? <Navigate to="/" /> : <Login />}
         />
         <Route
           path="/register"
-          element={!token ? <Register /> : <Navigate to="/" />}
+          element={isAuthenticated ? <Navigate to="/" /> : <Register />}
         />
         <Route path="/cart" element={<Cart />} />
         <Route path="/pizza/:id" element={<Pizza />} />
         <Route
           path="/profile"
-          element={token ? <Profile /> : <Navigate to="/login" />}
+          element={isAuthenticated ? <Profile /> : <Navigate to="/login" />}
         ></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>

@@ -6,7 +6,8 @@ import { useUser } from "../contexts/UserContext";
 
 const Navbar = () => {
   const { total } = useCart();
-  const { token, logout, register } = useUser();
+  const { isAuthenticated, logout, register } = useUser();
+  // const { token } = useUser();
   const navigate = useNavigate();
 
   const setActiveClass = ({ isActive }) =>
@@ -32,7 +33,7 @@ const Navbar = () => {
       background: "#ffffff",
       customClass: {
         confirmButton: "fw-semibold", // Añade negrita al botón si quieres
-        title: 'italian-font'
+        title: "italian-font",
       },
     }).then(() => {
       navigate("/login");
@@ -66,7 +67,7 @@ const Navbar = () => {
               <NavLink className={setActiveClass} aria-current="page" to="/">
                 Home
               </NavLink>
-              {token ? (
+              {isAuthenticated ? (
                 <NavLink className={setActiveClass} to="/profile">
                   Profile
                 </NavLink>
@@ -79,7 +80,7 @@ const Navbar = () => {
                   Registro
                 </NavLink>
               )}
-              {token ? (
+              {isAuthenticated ? (
                 <NavLink
                   className={setActiveClass}
                   to="/login"
@@ -91,7 +92,7 @@ const Navbar = () => {
                 <NavLink
                   className={setActiveClass}
                   to="/login"
-                  onClick={() => navigate(token ? "/" : "login")}
+                  onClick={() => navigate(isAuthenticated ? "/" : "login")}
                 >
                   Login
                 </NavLink>
