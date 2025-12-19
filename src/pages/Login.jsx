@@ -1,11 +1,16 @@
 import { useState } from "react";
+import { useUser } from "../contexts/UserContext";
+import { Link, useNavigate } from "react-router";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [emptyError, setEmptyError] = useState(false);
   const [charactersError, setCharactersError] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
+
+  const { email, setEmail } = useUser();
+  const { password, setPassword } = useUser();
+  const { login } = useUser();
+  const navigate = useNavigate();
 
   const validarDatos = (e) => {
     e.preventDefault();
@@ -22,7 +27,12 @@ const Login = () => {
       setCharactersError(true);
       return;
     }
-
+    try {
+      login();
+      navigate("/");
+    } catch (error) {
+      console.log("Error en el login:", error);
+    }
     setSuccessMessage(true);
 
     setEmail("");
@@ -49,9 +59,9 @@ const Login = () => {
             <label className="my-3">Contraseña</label>
             <input
               className="form-control"
-              type="text"
+              type="password"
               name="password"
-              placeholder=""
+              placeholder="*****"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -71,6 +81,12 @@ const Login = () => {
             Ingresar
           </button>
         </form>
+        <p className="pt-4">
+          ¿Quieres registrarte?{" "}
+          <Link to="/register" className="text-decoration-none">
+            Ingresa acá.
+          </Link>
+        </p>
       </div>
     </>
   );

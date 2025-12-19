@@ -1,14 +1,43 @@
 // import { useState } from "react";
-import { Link, NavLink } from "react-router";
+import Swal from "sweetalert2";
+import { Link, NavLink, useNavigate } from "react-router";
 import { useCart } from "../contexts/CartContext";
 import { useUser } from "../contexts/UserContext";
 
 const Navbar = () => {
   const { total } = useCart();
-  const { token, login, logout, register } = useUser();
+  const { token, logout, register } = useUser();
+  const navigate = useNavigate();
 
-  const setActiveClassa = ({ isActive }) =>
+  const setActiveClass = ({ isActive }) =>
     isActive ? "nav-link text-white fw-semibold" : "nav-link";
+
+  const handlerLogout = (e) => {
+    e.preventDefault();
+    logout();
+
+    Swal.fire({
+      title: "¡Hasta la próxima!",
+      // Aquí usamos la imagen de pizza que ya tienes en tu proyecto
+      html: `
+      <div style="font-size: 4rem; color:  #212529; margin-bottom: 20px;">
+        <i class="fas fa-pizza-slice"></i>
+      </div>
+  `,
+      imageWidth: 80,
+      imageHeight: 80,
+      imageAlt: "Icono de pizza",
+      confirmButtonText: "Ciao!",
+      confirmButtonColor: "#212529", // El color "bg-dark" de Bootstrap
+      background: "#ffffff",
+      customClass: {
+        confirmButton: "fw-semibold", // Añade negrita al botón si quieres
+        title: 'italian-font'
+      },
+    }).then(() => {
+      navigate("/login");
+    });
+  };
 
   return (
     <>
@@ -34,16 +63,16 @@ const Navbar = () => {
             id="navbarNavAltMarkup"
           >
             <div className="navbar-nav">
-              <NavLink className={setActiveClassa} aria-current="page" to="/">
+              <NavLink className={setActiveClass} aria-current="page" to="/">
                 Home
               </NavLink>
               {token ? (
-                <NavLink className={setActiveClassa} to="/profile">
+                <NavLink className={setActiveClass} to="/profile">
                   Profile
                 </NavLink>
               ) : (
                 <NavLink
-                  className={setActiveClassa}
+                  className={setActiveClass}
                   to="/register"
                   onClick={register}
                 >
@@ -52,24 +81,24 @@ const Navbar = () => {
               )}
               {token ? (
                 <NavLink
-                  className={setActiveClassa}
+                  className={setActiveClass}
                   to="/login"
-                  onClick={logout}
+                  onClick={handlerLogout}
                 >
                   Logout
                 </NavLink>
               ) : (
                 <NavLink
-                  className={setActiveClassa}
+                  className={setActiveClass}
                   to="/login"
-                  onClick={login}
+                  onClick={() => navigate(token ? "/" : "login")}
                 >
                   Login
                 </NavLink>
               )}
             </div>
             <div className="navbar-nav">
-              <NavLink className={setActiveClassa} to="/cart">
+              <NavLink className={setActiveClass} to="/cart">
                 {" "}
                 <i className="fas fa-shopping-cart me-1"></i>Total: ${" "}
                 {total.toLocaleString()}

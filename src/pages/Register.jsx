@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -57,9 +58,9 @@ const Register = () => {
             <label className="my-3">Contraseña</label>
             <input
               className="form-control"
-              type="text"
+              type="password"
               name="password"
-              placeholder=""
+              placeholder="*****"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -68,9 +69,9 @@ const Register = () => {
             <label className="my-3">Confirmar contraseña</label>
             <input
               className="form-control"
-              type="text"
+              type="password"
               name="confirm"
-              placeholder=""
+              placeholder="Las contraseñas deben coincidir"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
@@ -93,6 +94,12 @@ const Register = () => {
             Registrarse
           </button>
         </form>
+        <p className="pt-4">
+          ¿Ya tienes una cuenta?{" "}
+          <Link to="/login" className="text-decoration-none">
+            Ingresa acá.
+          </Link>
+        </p>
       </div>
     </>
   );

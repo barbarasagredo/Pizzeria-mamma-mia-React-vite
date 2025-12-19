@@ -4,10 +4,12 @@ import { createContext, useContext, useState } from "react";
 export const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
-  const [token, setToken] = useState(true);
+  const [token, setToken] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const login = () => {
-    console.log("Redirigiendo a login...");
+    setToken(true);
   };
 
   const logout = () => {
@@ -19,7 +21,19 @@ const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ token, setToken, login, logout, register }}>
+    <UserContext.Provider
+      value={{
+        token,
+        setToken,
+        login,
+        logout,
+        register,
+        email,
+        setEmail,
+        password,
+        setPassword,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );
