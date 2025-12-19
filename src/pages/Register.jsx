@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { useUser } from "../contexts/UserContext";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -9,8 +10,10 @@ const Register = () => {
   const [charactersError, setCharactersError] = useState(false);
   const [samePasswordError, setSamePasswordError] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
+  const { register } = useUser();
+  const navigate = useNavigate();
 
-  const validarDatos = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     setEmptyError(false);
@@ -30,8 +33,9 @@ const Register = () => {
       setSamePasswordError(true);
       return;
     }
-
-    setSuccessMessage(true);
+    await register(email, password);
+    navigate("/");
+    // setSuccessMessage(true);
 
     setEmail("");
     setPassword("");
@@ -42,7 +46,7 @@ const Register = () => {
     <>
       <div className="col-10 col-md-8 mx-auto border border-light-subtle shadow-sm rounded p-5">
         <h4>Registro</h4>
-        <form onSubmit={validarDatos}>
+        <form onSubmit={(e) => handleSubmit(e)}>
           <div className="form-group text-start">
             <label className="my-3">Email</label>
             <input

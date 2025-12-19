@@ -1,38 +1,109 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
-  // const [token, setToken] = useState(false);
+  const [token, setToken] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [user, setUser] = useState(null);
 
-  const login = () => {
-    setIsAuthenticated(true);
+  const login = async (email, password) => {
+    try {
+      const res = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer token_jkt`,
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.error || "Credenciales incorrectas");
+      if (data.token) {
+        setIsAuthenticated(true);
+        setUser(data.email);
+        // setPassword(data.password);
+        setToken(data.token);
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("userEmail", data.email);
+        setUser(data.email);
+
+        return data;
+      }
+    } catch (error) {
+      console.log("Error en el login:", error);
+      throw error;
+    }
+  };
+
+  const register = async (email, password) => {
+    try {
+      const res = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer token_jkt`,
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.error || "Error al registrar");
+      if (data.token) {
+        setIsAuthenticated(true);
+        setUser(data.email);
+        // setPassword(data.password);
+        setToken(data.token);
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("userEmail", data.email);
+        setUser(data.email);
+
+        return data;
+      }
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
   };
 
   const logout = () => {
     setIsAuthenticated(false);
+    setUser(null);
+    setToken(null);
+    localStorage.clear();
   };
 
-  const register = () => {
-    console.log("Redirigiendo a registro...");
-  };
+
+  useEffect(() => {
+    const savedToken = localStorage.getItem("token");
+    const savedEmail = localStorage.getItem("userEmail");
+    if (savedToken) {
+      setToken(savedToken);
+      setIsAuthenticated(true);
+      if (savedEmail) setUser(savedEmail);
+    } else {
+      setIsAuthenticated(false);
+      setToken(null);
+    }
+  }, []);
 
   return (
     <UserContext.Provider
       value={{
         isAuthenticated,
-        // token,
+        token,
         login,
         logout,
         register,
-        email,
-        setEmail,
-        password,
-        setPassword,
+        user,
       }}
     >
       {children}

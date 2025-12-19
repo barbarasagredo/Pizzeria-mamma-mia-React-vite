@@ -19,20 +19,12 @@ const Navbar = () => {
 
     Swal.fire({
       title: "¡Hasta la próxima!",
-      // Aquí usamos la imagen de pizza que ya tienes en tu proyecto
-      html: `
-      <div style="font-size: 4rem; color:  #212529; margin-bottom: 20px;">
-        <i class="fas fa-pizza-slice"></i>
-      </div>
-  `,
-      imageWidth: 80,
-      imageHeight: 80,
-      imageAlt: "Icono de pizza",
+      text: "Te esperamos, vuelve pronto.",
       confirmButtonText: "Ciao!",
-      confirmButtonColor: "#212529", // El color "bg-dark" de Bootstrap
+      confirmButtonColor: "#212529",
       background: "#ffffff",
       customClass: {
-        confirmButton: "fw-semibold", // Añade negrita al botón si quieres
+        confirmButton: "fw-semibold",
         title: "italian-font",
       },
     }).then(() => {

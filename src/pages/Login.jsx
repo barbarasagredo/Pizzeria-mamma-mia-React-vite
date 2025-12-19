@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import { useState } from "react";
 import { useUser } from "../contexts/UserContext";
 import { Link, useNavigate } from "react-router";
@@ -7,12 +8,12 @@ const Login = () => {
   const [charactersError, setCharactersError] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
 
-  const { email, setEmail } = useUser();
-  const { password, setPassword } = useUser();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const { login } = useUser();
   const navigate = useNavigate();
 
-  const validarDatos = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     setEmptyError(false);
@@ -28,12 +29,18 @@ const Login = () => {
       return;
     }
     try {
-      login();
+      await login(email, password);
       navigate("/");
     } catch (error) {
       console.log("Error en el login:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Error en el ingreso",
+        text: "Inténtalo nuevamente",
+        confirmButtonColor: "#212529",
+      });
     }
-    setSuccessMessage(true);
+    // setSuccessMessage(true);
 
     setEmail("");
     setPassword("");
@@ -43,7 +50,7 @@ const Login = () => {
     <>
       <div className="col-10 col-md-8 mx-auto border border-light-subtle shadow-sm rounded p-5">
         <h4>Login</h4>
-        <form onSubmit={validarDatos}>
+        <form onSubmit={(e) => handleSubmit(e)}>
           <div className="form-group text-start">
             <label className="my-3">Email</label>
             <input
