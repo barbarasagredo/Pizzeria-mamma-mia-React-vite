@@ -7,14 +7,15 @@ const PizzasProvider = ({ children }) => {
   const [data, setData] = useState([]);
 
   const getDataPizzas = async () => {
-    const url = "http://localhost:5000/api/pizzas";
+    const url =
+      "https://simple-api-backend-nodejs-express-fs-bjy4.onrender.com/api/pizzas";
     const res = await fetch(url);
     const data = await res.json();
     setData(data);
   };
 
   const getPizzaById = async (id) => {
-    const url = `http://localhost:5000/api/pizzas/${id}`;
+    const url = `https://simple-api-backend-nodejs-express-fs-bjy4.onrender.com/api/pizzas/${id}`;
     try {
       const res = await fetch(url);
       if (!res.ok) {

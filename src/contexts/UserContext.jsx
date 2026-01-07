@@ -13,17 +13,20 @@ const UserProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-          Authorization: `Bearer token_jkt`,
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      });
+      const res = await fetch(
+        "https://simple-api-backend-nodejs-express-fs-bjy4.onrender.com/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+            Authorization: `Bearer token_jkt`,
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        }
+      );
       const data = await res.json();
 
       if (!res.ok) throw new Error(data.error || "Credenciales incorrectas");
@@ -45,17 +48,20 @@ const UserProvider = ({ children }) => {
 
   const register = async (email, password) => {
     try {
-      const res = await fetch("http://localhost:5000/api/auth/register", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-          Authorization: `Bearer token_jkt`,
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      });
+      const res = await fetch(
+        "https://simple-api-backend-nodejs-express-fs-bjy4.onrender.com/api/auth/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+            Authorization: `Bearer token_jkt`,
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        }
+      );
       const data = await res.json();
 
       if (!res.ok) throw new Error(data.error || "Error al registrar");

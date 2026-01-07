@@ -57,16 +57,19 @@ const CartProvider = ({ children }) => {
 
   const checkoutCart = async (token) => {
     try {
-      const res = await fetch("http://localhost:5000/api/checkouts", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          cart: cartItems,
-        }),
-      });
+      const res = await fetch(
+        "https://simple-api-backend-nodejs-express-fs-bjy4.onrender.com/api/checkouts",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            cart: cartItems,
+          }),
+        }
+      );
       const data = await res.json();
 
       if (res.ok) {
