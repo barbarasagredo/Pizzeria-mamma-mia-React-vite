@@ -20,7 +20,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-md navbar-dark bg-dark">
         <div className="container-fluid">
           <Link className="navbar-brand italian-font" to="/">
-            <img src="../../pizza.png" alt="" className="img-navbar" />
+            <img src="https://raw.githubusercontent.com/barbarasagredo/Pizzeria-mamma-mia-React-vite/refs/heads/main/src/assets/imgs/pizza.png" alt="" className="img-navbar" />
             Pizzería Mamma Mia
           </Link>
           <button
